@@ -1,5 +1,6 @@
 package com.programmingwizzard.youguilds.api;
 
+import com.programmingwizzard.youguilds.api.db.Database;
 import com.programmingwizzard.youguilds.api.managers.UserManager;
 
 import java.util.logging.Logger;
@@ -13,6 +14,8 @@ public interface API
     void runAsync(Runnable runnable);
 
     void runAsyncTimer(Runnable runnable, long period);
+
+    Database getDB();
 
     UserManager getUserManager();
 

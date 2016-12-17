@@ -38,12 +38,12 @@ public class UserManagerImpl implements UserManager
     @Override
     public void loadAll()
     {
-        // TODO
+
     }
 
     @Override
     public void saveAll()
     {
-        // TODO
+
     }
 }
