@@ -35,6 +35,6 @@ public class UserImpl implements User
     @Override
     public Rank getRank()
     {
-        return null;
+        return this.rank;
     }
 }

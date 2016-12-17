@@ -4,6 +4,7 @@ import com.programmingwizzard.youguilds.api.API;
 import com.programmingwizzard.youguilds.api.YouAPI;
 import com.programmingwizzard.youguilds.api.db.Database;
 import com.programmingwizzard.youguilds.api.managers.UserManager;
+import com.programmingwizzard.youguilds.commands.GuildCommand;
 import com.programmingwizzard.youguilds.impl.managers.UserManagerImpl;
 import com.programmingwizzard.youguilds.listeners.AsyncPlayerPreLoginListener;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -64,6 +65,8 @@ public class YouGuilds extends JavaPlugin implements API
         YouAPI.getUserManager().loadAll();
 
         this.getServer().getPluginManager().registerEvents(new AsyncPlayerPreLoginListener(), this);
+
+        this.getCommand("guild").setExecutor(new GuildCommand());
     }
 
     @Override

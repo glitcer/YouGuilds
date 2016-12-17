@@ -1,0 +1,6 @@
+name: youGuilds
+main: com.programmingwizzard.youguilds.YouGuilds
+version: 1.0.0
+commands:
+  guild:
+    description: TODO
