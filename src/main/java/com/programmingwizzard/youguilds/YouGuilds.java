@@ -5,6 +5,7 @@ import com.programmingwizzard.youguilds.api.YouAPI;
 import com.programmingwizzard.youguilds.api.db.Database;
 import com.programmingwizzard.youguilds.api.managers.UserManager;
 import com.programmingwizzard.youguilds.impl.managers.UserManagerImpl;
+import com.programmingwizzard.youguilds.listeners.AsyncPlayerPreLoginListener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
@@ -61,6 +62,8 @@ public class YouGuilds extends JavaPlugin implements API
         this.database = Database.createSQLite(file);
 
         YouAPI.getUserManager().loadAll();
+
+        this.getServer().getPluginManager().registerEvents(new AsyncPlayerPreLoginListener(), this);
     }
 
     @Override

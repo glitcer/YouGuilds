@@ -14,7 +14,7 @@ import java.util.logging.Level;
  * @author ProgrammingWizzard
  * @date 2016-12-17
  */
-public abstract class Database extends Thread
+public abstract class Database
 {
     public static Database createSQLite(File file)
     {

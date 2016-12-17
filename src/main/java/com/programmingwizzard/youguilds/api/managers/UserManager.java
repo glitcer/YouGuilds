@@ -2,6 +2,7 @@ package com.programmingwizzard.youguilds.api.managers;
 
 import com.programmingwizzard.youguilds.api.basic.User;
 
+import java.util.Collection;
 import java.util.UUID;
 
 /*
@@ -12,7 +13,11 @@ public interface UserManager
 {
     User get(UUID uuid);
 
+    void createNewUser(UUID uuid);
+
     void loadAll();
 
     void saveAll();
+
+    Collection<User> getTop(int number);
 }

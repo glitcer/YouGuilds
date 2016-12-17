@@ -14,6 +14,8 @@ public interface User
 {
     UUID getUUID();
 
+    Rank getRank();
+
     default OfflinePlayer getOfflinePlayer()
     {
         if (this.getUUID() == null)

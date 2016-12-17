@@ -4,7 +4,9 @@ import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import com.programmingwizzard.youguilds.api.basic.User;
 import com.programmingwizzard.youguilds.api.managers.UserManager;
+import com.programmingwizzard.youguilds.impl.basic.UserImpl;
 
+import java.util.Collection;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
@@ -36,6 +38,18 @@ public class UserManagerImpl implements UserManager
     }
 
     @Override
+    public void createNewUser(UUID uuid)
+    {
+        if (this.get(uuid) != null)
+        {
+            return;
+        }
+        User user = new UserImpl(uuid);
+        userMap.put(uuid, user);
+        userCache.put(uuid, user);
+    }
+
+    @Override
     public void loadAll()
     {
 
@@ -45,5 +59,12 @@ public class UserManagerImpl implements UserManager
     public void saveAll()
     {
 
+    }
+
+    @Override
+    public Collection<User> getTop(int number)
+    {
+        // TODO
+        return null;
     }
 }
