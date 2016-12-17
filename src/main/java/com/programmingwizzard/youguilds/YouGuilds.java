@@ -3,8 +3,10 @@ package com.programmingwizzard.youguilds;
 import com.programmingwizzard.youguilds.api.API;
 import com.programmingwizzard.youguilds.api.YouAPI;
 import com.programmingwizzard.youguilds.api.db.Database;
+import com.programmingwizzard.youguilds.api.managers.GuildManager;
 import com.programmingwizzard.youguilds.api.managers.UserManager;
 import com.programmingwizzard.youguilds.commands.GuildCommand;
+import com.programmingwizzard.youguilds.impl.managers.GuildManagerImpl;
 import com.programmingwizzard.youguilds.impl.managers.UserManagerImpl;
 import com.programmingwizzard.youguilds.listeners.AsyncPlayerPreLoginListener;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -20,6 +22,7 @@ import java.util.logging.Level;
 public class YouGuilds extends JavaPlugin implements API
 {
     private final UserManager userManager = new UserManagerImpl();
+    private final GuildManager guildManager = new GuildManagerImpl();
 
     private boolean status = true;
     private Database database;
@@ -101,5 +104,11 @@ public class YouGuilds extends JavaPlugin implements API
     public UserManager getUserManager()
     {
         return this.userManager;
+    }
+
+    @Override
+    public GuildManager getGuildManager()
+    {
+        return this.guildManager;
     }
 }

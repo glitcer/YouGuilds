@@ -1,5 +1,7 @@
 package com.programmingwizzard.youguilds.impl.basic;
 
+import com.programmingwizzard.youguilds.api.YouAPI;
+import com.programmingwizzard.youguilds.api.basic.Guild;
 import com.programmingwizzard.youguilds.api.basic.Rank;
 import com.programmingwizzard.youguilds.api.basic.User;
 
@@ -13,6 +15,8 @@ public class UserImpl implements User
 {
     private final UUID uuid;
     private final Rank rank;
+
+    private String guild;
 
     public UserImpl(UUID uuid)
     {
@@ -36,5 +40,21 @@ public class UserImpl implements User
     public Rank getRank()
     {
         return this.rank;
+    }
+
+    @Override
+    public Guild getGuild()
+    {
+        return YouAPI.getGuildManager().get(guild);
+    }
+
+    @Override
+    public void setGuild(Guild guild)
+    {
+        if (guild == null)
+        {
+            return;
+        }
+        this.guild = guild.getTag();
     }
 }

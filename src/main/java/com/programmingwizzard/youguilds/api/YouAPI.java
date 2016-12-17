@@ -1,5 +1,6 @@
 package com.programmingwizzard.youguilds.api;
 
+import com.programmingwizzard.youguilds.api.managers.GuildManager;
 import com.programmingwizzard.youguilds.api.managers.UserManager;
 
 import java.util.logging.Logger;
@@ -47,5 +48,10 @@ public class YouAPI
     public static UserManager getUserManager()
     {
         return YouAPI.api.getUserManager();
+    }
+
+    public static GuildManager getGuildManager()
+    {
+        return YouAPI.api.getGuildManager();
     }
 }

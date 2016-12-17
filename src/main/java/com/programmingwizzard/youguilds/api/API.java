@@ -1,6 +1,7 @@
 package com.programmingwizzard.youguilds.api;
 
 import com.programmingwizzard.youguilds.api.db.Database;
+import com.programmingwizzard.youguilds.api.managers.GuildManager;
 import com.programmingwizzard.youguilds.api.managers.UserManager;
 
 import java.util.logging.Logger;
@@ -18,6 +19,8 @@ public interface API
     Database getDB();
 
     UserManager getUserManager();
+
+    GuildManager getGuildManager();
 
     Logger getLogger();
 }

@@ -16,6 +16,10 @@ public interface User
 
     Rank getRank();
 
+    Guild getGuild();
+
+    void setGuild(Guild guild);
+
     default OfflinePlayer getOfflinePlayer()
     {
         if (this.getUUID() == null)

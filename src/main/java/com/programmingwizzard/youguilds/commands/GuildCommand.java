@@ -1,5 +1,7 @@
 package com.programmingwizzard.youguilds.commands;
 
+import com.programmingwizzard.youguilds.commands.arguments.GuildCreateArgument;
+import com.programmingwizzard.youguilds.commands.arguments.GuildDeleteArgument;
 import com.programmingwizzard.youguilds.commands.arguments.PlayerInfoArgument;
 import com.programmingwizzard.youguilds.utils.ChatUtils;
 import org.bukkit.command.Command;
@@ -19,6 +21,8 @@ public class GuildCommand implements CommandExecutor
     private final Set<GuildArgument> guildArguments = new HashSet<>();
     {
         this.guildArguments.add(new PlayerInfoArgument());
+        this.guildArguments.add(new GuildDeleteArgument());
+        this.guildArguments.add(new GuildCreateArgument());
     }
 
     @Override
@@ -32,7 +36,7 @@ public class GuildCommand implements CommandExecutor
         {
             ChatUtils.sendMessage(commandSender, "&8========== [ &6youGuilds &8] ==========");
             ChatUtils.sendMessage(commandSender, "&7Dostepne komendy:");
-            this.guildArguments.forEach(guildArgument -> ChatUtils.sendMessage(commandSender, "&8-  &7/" + guildArgument.getArgument() + " &8- &6" + guildArgument.getDescription()));
+            this.guildArguments.forEach(guildArgument -> ChatUtils.sendMessage(commandSender, "&8-  &7/guild " + guildArgument.getArgument() + " &8- &6" + guildArgument.getDescription()));
             return ChatUtils.sendMessage(commandSender, "&8========== [ &6youGuilds &8] ==========");
         }
         GuildArgument argument = this.guildArguments.stream().filter(guildArgument -> guildArgument.getArgument().equals(strings[0])).findFirst().orElse(null);
@@ -40,7 +44,7 @@ public class GuildCommand implements CommandExecutor
         {
             ChatUtils.sendMessage(commandSender, "&8========== [ &6youGuilds &8] ==========");
             ChatUtils.sendMessage(commandSender, "&7Dostepne komendy:");
-            this.guildArguments.forEach(guildArgument -> ChatUtils.sendMessage(commandSender, "&8-  &7/" + guildArgument.getArgument() + " &8- &6" + guildArgument.getDescription()));
+            this.guildArguments.forEach(guildArgument -> ChatUtils.sendMessage(commandSender, "&8-  &7/guild " + guildArgument.getArgument() + " &8- &6" + guildArgument.getDescription()));
             return ChatUtils.sendMessage(commandSender, "&8========== [ &6youGuilds &8] ==========");
         }
         argument.handle((Player) commandSender, strings);
